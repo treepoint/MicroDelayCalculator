@@ -26,12 +26,12 @@ namespace delay_calculator
             for (int i = 0; i < start_array.Length; i++)
             {
                 if (bpm == 0) //Если ноль, то просто выводим заглушку
-                { delay_time = "\r\n" + start_array[i] + "=∞ ms"; }
+                { delay_time = "\r\n" + "1/" + start_array[i] + "=∞ ms"; }
                 else
                 {
                     /*Например, у нас есть трек, с BPM = 120. В одной минуте 60000 ms, в одном такте 4 доли. получаем:
                       240000/120=2000ms.*/
-                    delay_time = "\r\n" + start_array[i] + "= " + Math.Round(240000 / bpm / Convert.ToDecimal(start_array[i]) * Convert.ToDecimal(K), 2) + " ms";
+                    delay_time = "\r\n" + "1/" + start_array[i] + "= " + Math.Round(240000 / bpm / Convert.ToDecimal(start_array[i]) * Convert.ToDecimal(K), 2) + " ms";
                 }
                 result = result + delay_time;
             }
