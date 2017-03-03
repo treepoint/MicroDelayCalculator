@@ -1,37 +1,36 @@
 ﻿using System;
 using System.Windows;
 
-namespace delay_calculator
+namespace DelayCalculator
 {
-    public class calculate_support
+    public class CalculateSupport
     {
         //Объявляем глобальный массив дробей для расчета
-        int[] start_array = { 1, 2, 3, 4, 8, 16, 32, 64, 128 };
+        int[] startArray = {1, 2, 3, 4, 8, 16, 32, 64, 128};
 
         /// <summary>
         /// Метод для рассчета задержки и формирования строки для вывода в форму (переносы строки включены)
         /// </summary>
         /// <param name="bpm">BPM</param>
-        /// <param name="K">Коэффициент рассчета для триоллей и полуторых нот</param>
+        /// <param name="C">Коэффициент рассчета для триоллей и полуторых нот</param>
         /// <param name="result">Результат работы метода</param>
 
-        public string calculate_with_K(int bpm, double K) //где K это коэффициент
+        public string CalculateWithCoefficient(int bpm, double C) //где K это коэффициент
         {
-            string result = ""; string delay_time = "";
+            string result = ""; string delayTime = "";
 
-            for (int i = 0; i < start_array.Length; i++)
+            for (int i = 0; i < startArray.Length; i++)
             {
                 if (bpm == 0) //Если ноль, то просто выводим заглушку
-                { delay_time = "\r\n" + "1/" + Convert.ToString(start_array[i]) + "=∞ ms"; }
+                 { delayTime = string.Format("{0}1/{1}=∞ ms", Environment.NewLine, Convert.ToString(startArray[i]));}
                 else
                 {
-                    /*Например, у нас есть трек, с BPM = 120. В одной минуте 60000 ms, в одном такте 4 доли. получаем:
-                      240000/120=2000ms.*/
-                    delay_time = "\r\n" + "1/" + Convert.ToString(start_array[i]) + "=" + Math.Round(240000 / bpm / start_array[i] * Convert.ToDecimal(K), 2) + " ms";
+                 /*Например, у нас есть трек, с BPM = 120. В одной минуте 60000 ms, в одном такте 4 доли. получаем: 240000/120=2000ms.*/
+                 delayTime = string.Format("{0}1/{1}={2} ms", Environment.NewLine, Convert.ToString(startArray[i]), Math.Round(240000/bpm/startArray[i]*C,2));
                 }
-                result = result + delay_time;
+                result = result + delayTime;
             }
-            return (result);
+            return result;
         }
     }
 
@@ -46,17 +45,17 @@ namespace delay_calculator
         /// Метод для запусках расчета всех трех вариантов (обычные ноты, триолли, полторашки)
         /// </summary>
         /// <param name="bpm">BPM</param>
-        public void notes_calculate(int bpm)
+        private void NotesCalculate(int bpm)
         {
             //Создаем новый объект 
-            calculate_support cs = new calculate_support();
+            var cs = new CalculateSupport();
             //Используем новый объект :)
             //Пишем и считаем для обычных нот
-            notes_text_block.Text = cs.calculate_with_K(bpm, 1);
+            NotesTextBlock.Text = cs.CalculateWithCoefficient(bpm, 1);
             //Пишем и считаем для триолей
-            triolli_text_block.Text = cs.calculate_with_K(bpm, 0.667);
+            TriolliTextBlock.Text = cs.CalculateWithCoefficient(bpm, 0.667);
             //Пишем и считаем для полуторных нот
-            dotes_text_block.Text = cs.calculate_with_K(bpm, 1.5);
+            DotesTextBlock.Text = cs.CalculateWithCoefficient(bpm, 1.5);
         }
 
         /// <summary>
@@ -64,11 +63,11 @@ namespace delay_calculator
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="ea"></param>
-        private void calculate(object sender, EventArgs ea)
+        protected void Calculate(object sender, EventArgs ea)
         {
             try
             { 
-                notes_calculate(int.Parse(BPM_text_input.Text));
+                NotesCalculate(int.Parse(BpmTextInput.Text));
             }
             catch (System.FormatException) //Если кто-то ввел не число, покажем исключение
             {
@@ -76,6 +75,5 @@ namespace delay_calculator
             }
 
         }
-
     }
 }
