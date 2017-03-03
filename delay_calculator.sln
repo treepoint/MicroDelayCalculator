@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "delay_calculator", "delay_calculator\delay_calculator.csproj", "{699B6973-EA51-46C4-8527-8C50DDD023FF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelayCalculator", "delay_calculator\DelayCalculator.csproj", "{699B6973-EA51-46C4-8527-8C50DDD023FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
