@@ -1,9 +1,15 @@
-﻿<Application x:Class="delay_calculator.App"
+﻿<!-- Все названия классов и тем более имена пространств должны совпадать с указанными в аплике! Само собой же, но не работало из-за этой ошибки. -->
+<Application x:Class="DelayCalculator.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:delay_calculator"
+             xmlns:local="clr-namespace:DelayCalculator"      
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <!--Весь блок ниже определяет какой словарь ресурсов (локализация) будет использоваться по-умолчанию-->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/lang.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -9,6 +9,7 @@ Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+		Description = Небольшая offline утилита для расчета времени задержки исходя из BPM.
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{699B6973-EA51-46C4-8527-8C50DDD023FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

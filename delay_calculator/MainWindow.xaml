@@ -5,17 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DelayCalculator"
         mc:Ignorable="d"
-        Title="Micro Delay Calculator" Height="331.193" Width="600" ResizeMode="CanMinimize" Initialized="Calculate">
+        Title="Micro Delay Calculator" Height="309.733" Width="606.077" ResizeMode="CanMinimize" Initialized="Calculate">
     <Grid>
-        <Label x:Name="BbmLabel" Content="Введите BPM:" HorizontalAlignment="Left" Margin="24,19,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <TextBox x:Name="BpmTextInput" HorizontalAlignment="Left" Height="29" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="94" Margin="144,19,0,0" FontSize="14" TextAlignment="Center" VerticalContentAlignment="Center"/>
-        <Button x:Name="CalculateButton" Content="Расчитать время задержки" HorizontalAlignment="Left" Height="29" Margin="269,19,0,0" VerticalAlignment="Top" Width="295" IsTabStop="True" TabIndex="1" Click="Calculate"/>
-        <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="LightGray" x:Name="NotesTextLabel" Content="Ноты" HorizontalAlignment="Left" Margin="24,74,0,0" VerticalAlignment="Top" Width="174" Height="24"/>
-        <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="LightGray" x:Name="TriolliTextLabel" Content="Триоли" HorizontalAlignment="Left" Margin="212,74,0,0" VerticalAlignment="Top" Width="174" Height="24"/>
-        <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="LightGray" x:Name="DotesNoteTextLabel" Content="Увеличенные ноты (с точкой)" HorizontalAlignment="Left" Margin="400,74,0,0" VerticalAlignment="Top" Width="174" Height="24"/>
-        <TextBlock x:Name="NotesTextBlock" HorizontalAlignment="Left" Margin="24,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="189" Width="174"/>
-        <TextBlock x:Name="TriolliTextBlock" HorizontalAlignment="Left" Margin="212,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="189" Width="174"/>
-        <TextBlock x:Name="DotesTextBlock" HorizontalAlignment="Left" Margin="400,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="190" Width="174"/>
-
+        <Label x:Name="bpmLabel" Content="{DynamicResource bpmLabel}" HorizontalAlignment="Left" Margin="24,26,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <TextBox x:Name="BpmTextInput" HorizontalAlignment="Left" Height="29" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="94" Margin="144,26,0,0" FontSize="14" TextAlignment="Center" VerticalContentAlignment="Center"/>
+        <Button x:Name="calculateButton" Content="{DynamicResource calculateButton}" HorizontalAlignment="Left" Height="29" Margin="269,26,0,0" VerticalAlignment="Top" Width="295" IsTabStop="True" TabIndex="1" Click="Calculate"/>
+        <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="LightGray" x:Name="NotesTextLabel" Content="{DynamicResource notesTextBlock}" HorizontalAlignment="Left" Margin="24,68,0,0" VerticalAlignment="Top" Width="174" Height="24"/>
+        <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="LightGray" x:Name="TriolliTextLabel" Content="{DynamicResource triolliTextBlock}" HorizontalAlignment="Left" Margin="212,68,0,0" VerticalAlignment="Top" Width="174" Height="24"/>
+        <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="LightGray" x:Name="DottedTextBlock" Content="{DynamicResource dottedTextBlock}" HorizontalAlignment="Left" Margin="400,68,0,0" VerticalAlignment="Top" Width="174" Height="24"/>
+        <TextBlock x:Name="notesTextBlock" HorizontalAlignment="Left" Margin="24,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="175" Width="174"/>
+        <TextBlock x:Name="triolliTextBlock" HorizontalAlignment="Left" Margin="212,98,0,0" TextWrapping="Wrap" Width="174" Height="175" VerticalAlignment="Top"/>
+        <TextBlock x:Name="dotesTextBlock" HorizontalAlignment="Left" Margin="400,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="176" Width="174"/>
+        <Menu DockPanel.Dock="Top" Height="20" Margin="529,2,25,0" VerticalAlignment="Top" Width="40" Background="Transparent">
+            <MenuItem x:Name="menuLanguage" Header="{DynamicResource menuLanguage}" Height="20" Width="36" HorizontalAlignment="Center"/>
+        </Menu>
     </Grid>
 </Window>

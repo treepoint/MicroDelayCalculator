@@ -8,7 +8,7 @@ using System.Windows;
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
 [assembly: AssemblyTitle("Micro Delay Calculator")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Небольшая offline утилита для расчета времени задержки исходя из BPM.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Micro Delay Calculator")]
@@ -53,3 +53,5 @@ using System.Windows;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: NeutralResourcesLanguage("ru-RU")] //Задаем дефолтный язык для приложения, для англ это было бы en-US
+
