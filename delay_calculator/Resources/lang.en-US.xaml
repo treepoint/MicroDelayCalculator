@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:DelayCalculator.Resources"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib">  <!-- Добавляем к XAML использование типов для значений -->
+    <v:String x:Key="bpmLabel">Enter BPM:</v:String>
+    <v:String x:Key="menuLanguage">US</v:String>
+    <v:String x:Key="calculateButton">Calculate delay time</v:String>
+    <v:String x:Key="notesTextBlock">Notes</v:String>
+    <v:String x:Key="triolliTextBlock">Triplets</v:String>
+    <v:String x:Key="dottedTextBlock">Dotted notes</v:String>
+    <v:String x:Key="ms">ms</v:String>
+    <v:String x:Key="about">About</v:String>
+    <v:String x:Key="description">Tool to calculate delay time based on BPM. You specify the necessary number of beats per minute and get the optimal duration of delay for various durations including triplets and increased durability.</v:String>
+</ResourceDictionary>

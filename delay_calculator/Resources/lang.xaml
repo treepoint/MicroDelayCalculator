@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:DelayCalculator.Resources"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib"> <!-- Добавляем к XAML использование типов для значений -->
+    <v:String x:Key="bpmLabel">Введите BPM:</v:String>
+    <v:String x:Key="menuLanguage">RUS</v:String>
+    <v:String x:Key="calculateButton">Расчитать время задержки</v:String>
+    <v:String x:Key="notesTextBlock">Ноты</v:String>
+    <v:String x:Key="triolliTextBlock">Триолли</v:String>
+    <v:String x:Key="dottedTextBlock">Увеличенные ноты (с точкой)</v:String>
+    <v:String x:Key="ms">мс</v:String>
+    <v:String x:Key="about">О программе</v:String>
+    <v:String x:Key="description">Утилита для расчета времени задержки исходя из BPM. Вы указываете нужное количество ударов в минуту и получаете оптимальную длительность задержки для различных длительностей включая триоли и увеличенные длительности.</v:String>
+</ResourceDictionary>
