@@ -9,4 +9,6 @@
     <v:String x:Key="triolliTextBlock">Triplets</v:String>
     <v:String x:Key="dottedTextBlock">Dotted notes</v:String>
     <v:String x:Key="ms">ms</v:String>
+    <v:String x:Key="about">About</v:String>
+    <v:String x:Key="description">Tool to calculate delay time based on BPM. You specify the necessary number of beats per minute and get the optimal duration of delay for various durations including triplets and increased durability.</v:String>
 </ResourceDictionary>

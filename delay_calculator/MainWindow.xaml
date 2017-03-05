@@ -4,20 +4,46 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DelayCalculator"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="Micro Delay Calculator" Height="309.733" Width="606.077" ResizeMode="CanMinimize" Initialized="Calculate">
+        Title="Micro Delay Calculator" Height="320.4" Width="606.077" ResizeMode="CanMinimize" Loaded="Calculate">
     <Grid>
-        <Label x:Name="bpmLabel" Content="{DynamicResource bpmLabel}" HorizontalAlignment="Left" Margin="24,26,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <TextBox x:Name="BpmTextInput" HorizontalAlignment="Left" Height="29" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="94" Margin="144,26,0,0" FontSize="14" TextAlignment="Center" VerticalContentAlignment="Center"/>
-        <Button x:Name="calculateButton" Content="{DynamicResource calculateButton}" HorizontalAlignment="Left" Height="29" Margin="269,26,0,0" VerticalAlignment="Top" Width="295" IsTabStop="True" TabIndex="1" Click="Calculate"/>
-        <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="LightGray" x:Name="NotesTextLabel" Content="{DynamicResource notesTextBlock}" HorizontalAlignment="Left" Margin="24,68,0,0" VerticalAlignment="Top" Width="174" Height="24"/>
-        <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="LightGray" x:Name="TriolliTextLabel" Content="{DynamicResource triolliTextBlock}" HorizontalAlignment="Left" Margin="212,68,0,0" VerticalAlignment="Top" Width="174" Height="24"/>
-        <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="LightGray" x:Name="DottedTextBlock" Content="{DynamicResource dottedTextBlock}" HorizontalAlignment="Left" Margin="400,68,0,0" VerticalAlignment="Top" Width="174" Height="24"/>
-        <TextBlock x:Name="notesTextBlock" HorizontalAlignment="Left" Margin="24,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="175" Width="174"/>
-        <TextBlock x:Name="triolliTextBlock" HorizontalAlignment="Left" Margin="212,98,0,0" TextWrapping="Wrap" Width="174" Height="175" VerticalAlignment="Top"/>
-        <TextBlock x:Name="dotesTextBlock" HorizontalAlignment="Left" Margin="400,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="176" Width="174"/>
-        <Menu DockPanel.Dock="Top" Height="20" Margin="529,2,25,0" VerticalAlignment="Top" Width="40" Background="Transparent">
-            <MenuItem x:Name="menuLanguage" Header="{DynamicResource menuLanguage}" Height="20" Width="36" HorizontalAlignment="Center"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="274*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="bpmLabel" Content="{DynamicResource ResourceKey=bpmLabel}" Margin="24,10,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Grid.RowSpan="2" HorizontalAlignment="Left" Width="104"/>
+        <TextBox x:Name="BpmTextInput" TextWrapping="Wrap" Text="0" PreviewTextInput="BpmTextInputPreview" Margin="133,10,0,0" FontSize="14" TextAlignment="Center" VerticalContentAlignment="Center" Grid.RowSpan="2" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="65"/>
+        <Button x:Name="calculateButton" Content="{DynamicResource calculateButton}" Margin="212,10,0,0" IsTabStop="True" TabIndex="1" Click="Calculate" Grid.RowSpan="2" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="362">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White"/>
+                    <GradientStop Color="#FFCBCBCB" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="LightGray" x:Name="NotesTextLabel" Content="{DynamicResource ResourceKey=notesTextBlock}" Margin="24,27,0,0" VerticalAlignment="Top" Height="24" Grid.Row="1" HorizontalAlignment="Left" Width="174"/>
+        <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="LightGray" x:Name="TriolliTextLabel" Content="{DynamicResource triolliTextBlock}" Margin="212,27,0,0" VerticalAlignment="Top" Height="24" Grid.Row="1" HorizontalAlignment="Left" Width="174"/>
+        <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="LightGray" x:Name="DottedTextBlock" Content="{DynamicResource dottedTextBlock}" Margin="400,27,0,0" VerticalAlignment="Top" Height="24" Grid.Row="1" HorizontalAlignment="Left" Width="174"/>
+        <TextBlock x:Name="notesTextBlock" HorizontalAlignment="Left" Margin="24,57.333,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="175" Width="174" Grid.Row="1"/>
+        <TextBlock x:Name="triolliTextBlock" HorizontalAlignment="Left" Margin="212,57.333,0,0" TextWrapping="Wrap" Width="174" Height="175" VerticalAlignment="Top" Grid.Row="1"/>
+        <TextBlock x:Name="dotesTextBlock" HorizontalAlignment="Left" Margin="400,56.333,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="176" Width="174" Grid.Row="1"/>
+        <Menu Height="20" Margin="529,234,0,0" VerticalAlignment="Top" Width="40" Grid.Row="1" HorizontalAlignment="Left">
+            <Menu.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                    <GradientStop Color="#FFF0F0F0" Offset="1"/>
+                </LinearGradientBrush>
+            </Menu.Background>
+            <MenuItem x:Name="menuLanguage" Header="{DynamicResource menuLanguage}" Height="20" Width="40" HorizontalAlignment="Center" RenderTransformOrigin="0.444,0.567" Background="Transparent"/>
         </Menu>
+        <Button x:Name="button" Content="{DynamicResource about}" HorizontalAlignment="Left" Margin="445,234,0,0" Width="79" BorderThickness="0" Height="20" VerticalAlignment="Top" Grid.Row="1" Click="AboutAppButton">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFF1EFEF" Offset="0"/>
+                    <GradientStop Color="#FFF1EFEF" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>

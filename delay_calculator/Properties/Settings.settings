@@ -5,5 +5,8 @@
     <Setting Name="DefaultLanguage" Type="System.Globalization.CultureInfo" Scope="User">
       <Value Profile="(Default)">ru-RU</Value>
     </Setting>
+    <Setting Name="DefaultBpm" Type="System.String" Scope="User">
+      <Value Profile="(Default)">12</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

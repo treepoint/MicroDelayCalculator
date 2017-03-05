@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Globalization;
 using System.Collections.Generic;
 
@@ -37,6 +38,7 @@ namespace DelayCalculator
         }
     }
 
+
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -59,7 +61,10 @@ namespace DelayCalculator
                 menuLang.Click += ChangeLanguageClick;
                 menuLanguage.Items.Add(menuLang);
             }
+
+           BpmTextInput.Text = Properties.Settings.Default.DefaultBpm; //Получим введенный при прошлом запуске BPM
         }
+
         private void LanguageChanged(object sender, EventArgs e)
         {
             var currLang = App.Language;
@@ -92,6 +97,17 @@ namespace DelayCalculator
         }
 
         /// <summary>
+        /// Метод для проверки корректности ввода данных в поле BPM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BpmTextInputPreview(object sender, TextCompositionEventArgs e)
+        {
+            if (!char.IsDigit(e.Text, e.Text.Length - 1))
+                e.Handled = true;
+        }
+
+        /// <summary>
         /// Метод для запусках расчета всех трех вариантов (обычные ноты, триолли, полторашки)
         /// </summary>
         /// <param name="bpm">BPM</param>
@@ -103,6 +119,10 @@ namespace DelayCalculator
             notesTextBlock.Text = cs.CalculateWithCoefficient(bpm, 1);       //Пишем и считаем для обычных нот
             triolliTextBlock.Text = cs.CalculateWithCoefficient(bpm, 0.667); //Пишем и считаем для триолей
             dotesTextBlock.Text = cs.CalculateWithCoefficient(bpm, 1.5);     //Пишем и считаем для полуторных нот
+
+            //Закэшируем введенный BPM
+            Properties.Settings.Default.DefaultBpm = BpmTextInput.Text;
+            Properties.Settings.Default.Save();
         }
 
         /// <summary>
@@ -112,15 +132,16 @@ namespace DelayCalculator
         /// <param name="ea"></param>
         protected void Calculate(object sender, EventArgs ea)
         {
-            try
-            { 
                 NotesCalculate(int.Parse(BpmTextInput.Text));
-            }
-            catch (System.FormatException) //Если кто-то ввел не число, покажем исключение
-            {
-                MessageBox.Show("Введите целое число!");
-            }
+        }
 
+        private void AboutAppButton(object sender, RoutedEventArgs e)
+        {
+            //  about_window.Show();
+            //MessageBox.Show("Утилита для расчета времени задержки исходя из BPM. Исходный код и разработчик - https://github.com/treepoint/Micro_Delay_Calculator");
+
+            about winAbout = new about();
+            winAbout.Show();
         }
     }
 }
