@@ -8,7 +8,6 @@ http://www.srblog.ru/effects.html.
 
 Системные требования: установленный .Net framework 4.5.2 или выше.
 Локализация: русский, английский.
-==========================================
 
 Tool to calculate delay time based on BPM. Used references:  
 http://nickfever.com/music/delay-calculator; 
